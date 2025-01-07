@@ -34,7 +34,13 @@
                <li><a href="#my-work">My Work</a></li>
           
             </div>
-            
+            <div class="search-icon">
+              
+           </div>
+            <div class="cancel-icon">
+              <span class="fas fa-times"></span>
+             </div>
+
          </nav>
          
          <script>
@@ -415,20 +421,20 @@ nav .logo.space{
             padding: 30px 2px;
             }
 
-             /* Responsive behavior */
+            
     @media (max-width: 768px) {
         .row {
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center-align items */
+            flex-direction: column; 
+            align-items: center;
         }
 
         .about-col {
-            flex-basis: 100%; /* Take full width for both image and list */
-            text-align: center; /* Optional: Center-align text on small screens */
+            flex-basis: 100%; 
+            text-align: center; 
         }
 
         .about-col ul {
-            margin-top: 30px; /* Adjust spacing between image and list */
+            margin-top: 30px;
         }
     }
            
@@ -495,12 +501,12 @@ nav .logo.space{
                 border-radius: 50%;
             }
     
-            /* Style for the year text (data-year) */
+            
             .timeline li:before {
                 display: inline-block;
                 content: attr(data-year);
-                font-size: 20px; /* Increased size */
-                font-weight: bold; /* Added bold styling */
+                font-size: 20px; 
+                font-weight: bold; 
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
@@ -508,14 +514,14 @@ nav .logo.space{
             }
     
             .timeline li:nth-child(odd):before {
-                top: -50px; /* Positioned further above the bubble */
+                top: -50px; 
             }
     
             .timeline li:nth-child(even):before {
-                bottom: -50px; /* Positioned further below the bubble */
+                bottom: -50px; 
             }
     
-            /* Style for the description text (data-text) */
+            
             .timeline li:after {
                 display: inline-block;
                 content: attr(data-text);
