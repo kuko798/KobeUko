@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+    <head>
+        <meta charset="utf-8" >  
+        <title> Kobe Uko</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
+
+    </head>
+    <body>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                mdb.Animate.init();
+            });
+        </script>
+         <nav>
+            <div class="menu-icon">
+               <span class="fas fa-bars"></span>
+            </div>
+            <div class="logo">
+               Kobe Uko
+            </div>
+            <div class="nav-items">
+               <li><a href="#">Home</a></li>
+               <li><a href="#about-me">About Me</a></li>
+               <li><a href="#experience">Experience</a></li>
+               <li><a href="#my-work">My Work</a></li>
+          
+            </div>
+            
+         </nav>
+         
+         <script>
+            const menuBtn = document.querySelector(".menu-icon span");
+            const searchBtn = document.querySelector(".search-icon");
+            const cancelBtn = document.querySelector(".cancel-icon");
+            const items = document.querySelector(".nav-items");
+            const form = document.querySelector("form");
+            menuBtn.onclick = ()=>{
+              items.classList.add("active");
+              menuBtn.classList.add("hide");
+              searchBtn.classList.add("hide");
+              cancelBtn.classList.add("show");
+            }
+            cancelBtn.onclick = ()=>{
+              items.classList.remove("active");
+              menuBtn.classList.remove("hide");
+              searchBtn.classList.remove("hide");
+              cancelBtn.classList.remove("show");
+              form.classList.remove("active");
+              cancelBtn.style.color = "#ff3d00";
+            }
+            searchBtn.onclick = ()=>{
+              form.classList.add("active");
+              searchBtn.classList.add("hide");
+              cancelBtn.classList.add("show");
+            }
+         </script>
+         <style>
+            nav{
+  background: #171c24;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 100px;
+}
+nav .logo{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+nav .nav-items{
+  display: flex;
+  flex: 1;
+  padding: 0 0 0 40px;
+}
+nav .nav-items li{
+  list-style: none;
+  padding: 0 15px;
+}
+nav .nav-items li a{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav .nav-items li a:hover{
+  color: #ff3d00;
+}
+nav form{
+  display: flex;
+  height: 40px;
+  padding: 2px;
+  background: #1e232b;
+  min-width: 18%!important;
+  border-radius: 2px;
+  border: 1px solid rgba(155,155,155,0.2);
+}
+nav form .search-data{
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 17px;
+  border: none;
+  font-weight: 500;
+  background: none;
+}
+nav form button{
+  padding: 0 15px;
+  color: #fff;
+  font-size: 17px;
+  background: #ff3d00;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+nav form button:hover{
+  background: #e63600;
+}
+nav .menu-icon,
+nav .cancel-icon,
+nav .search-icon{
+  width: 40px;
+  text-align: center;
+  margin: 0 50px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+nav .menu-icon span,
+nav .cancel-icon,
+nav .search-icon{
+  display: none;
+}
+@media (max-width: 1245px) {
+  nav{
+    padding: 0 50px;
+  }
+}
+@media (max-width: 1140px){
+  nav{
+    padding: 0px;
+  }
+  nav .logo{
+    flex: 2;
+    text-align: center;
+  }
+  nav .nav-items{
+    position: fixed;
+    z-index: 99;
+    top: 70px;
+    width: 100%;
+    left: -100%;
+    height: 100%;
+    padding: 10px 50px 0 50px;
+    text-align: center;
+    background: #14181f;
+    display: inline-block;
+    transition: left 0.3s ease;
+  }
+  nav .nav-items.active{
+    left: 0px;
+  }
+  nav .nav-items li{
+    line-height: 40px;
+    margin: 30px 0;
+  }
+  nav .nav-items li a{
+    font-size: 20px;
+  }
+  nav form{
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    opacity: 0;
+    pointer-events: none;
+    transition: top 0.3s ease, opacity 0.1s ease;
+  }
+  nav form.active{
+    top: 95px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav form:before{
+    position: absolute;
+    content: "";
+    top: -13px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    border: 10px solid transparent;
+    border-bottom-color: #1e232b;
+    margin: -20px 0 0;
+  }
+  nav form:after{
+    position: absolute;
+    content: '';
+    height: 60px;
+    padding: 2px;
+    background: #1e232b;
+    border-radius: 2px;
+    min-width: calc(100% + 20px);
+    z-index: -2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  nav .menu-icon{
+    display: block;
+  }
+  nav .search-icon,
+  nav .menu-icon span{
+    display: block;
+  }
+  nav .menu-icon span.hide,
+  nav .search-icon.hide{
+    display: none;
+  }
+  nav .cancel-icon.show{
+    display: block;
+  }
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.content header{
+  font-size: 30px;
+  font-weight: 700;
+}
+.content .text{
+  font-size: 30px;
+  font-weight: 700;
+}
+.space{
+  margin: 10px 0;
+}
+nav .logo.space{
+  color: red;
+  padding: 0 5px 0 0;
+}
+@media (max-width: 980px){
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 20px;
+  }
+  nav form{
+    right: 30px;
+  }
+}
+@media (max-width: 350px){
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 10px;
+    font-size: 16px;
+  }
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.content header{
+  font-size: 30px;
+  font-weight: 700;
+}
+.content .text{
+  font-size: 30px;
+  font-weight: 700;
+}
+.content .space{
+  margin: 10px 0;
+}
+         </style>
+
+        <section class="frontpage" id = "opener">
+            <div class="opener">
+
+                
+        <h1>Kobe Uko</h1>
+            </div>
+            <style>
+                
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+                .frontpage{
+    padding-top: 100px;
+    background: url("ColorStack Headshots3801.JPG");
+    align-items: center;
+    overflow: hidden;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: flexbox;
+    background-attachment: fixed;
+    align-items: center;
+    overflow: hidden;
+
+    
+
+}
+        
+.frontpage h1{
+    font-size: 60px;
+	color: #fff;
+	padding-top: 150px;
+	margin-left: 30px;
+    text-align: center;
+}
+
+.frontpage img{
+    position: fixed !important;
+}
+            </style>
+    </section>
+    <section class="about-me" id="about-me">
+        <h1> About Me</h1>
+        <div class="row">
+        <div class="about-col">
+        <img src="C:\Users\paulo\OneDrive\Pictures\Screenshots\Screenshot 2025-01-05 020653.png" width="1696" height="954"/>
+        </div>
+    
+        
+        <div class= "about-col">
+        
+        <ul>
+           
+            <li>Name: Kobe Uko</li>
+            <li>School: University of Wiscosnin Madison</li>
+            <li>Major: Computer Science</li>
+            <li>Year: Junior</li>
+            <li>Hometown: Saint Louis, Missouri</li>
+            <li>Membership: Omega Psi Phi Fraternity, Inc, ColorStack, NSBE</li>
+
+            
+        </ul>
+
+        
+    </div>
+
+
+</div>
+        <style>
+            .row{
+            margin-top: 5%;
+            display: flex;
+            justify-content: space-between;  
+            }
+            .about-me{
+            width: 80%;
+            margin: auto;
+            padding-top: 80px;
+            padding-bottom: 100px;
+            }
+            .about-me h1{
+                text-align: center;
+
+            }
+            .about-col img{
+                width: 100%;
+                height: 100%;
+                border-radius: 5%;
+                
+              
+            }
+            .about-col li{
+                margin-top: 10px;
+                text-align: left;
+                
+
+            }
+
+            .about-col ul{
+            list-style: none !important;
+            padding: 0;
+            margin-top: 70px;
+            }
+            .about-col{
+            flex-basis: 48%;
+            padding: 30px 2px;
+            }
+
+             /* Responsive behavior */
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center-align items */
+        }
+
+        .about-col {
+            flex-basis: 100%; /* Take full width for both image and list */
+            text-align: center; /* Optional: Center-align text on small screens */
+        }
+
+        .about-col ul {
+            margin-top: 30px; /* Adjust spacing between image and list */
+        }
+    }
+           
+        </style>
+    </section>
+    <section class="companies" id="experience">
+        <h1>Work Experience</h1>
+    
+        <ul class="timeline">
+            <li data-year="June 2023" data-text="I helped co-found the start-up DevHeads."></li>
+            <li data-year="July 2023" data-text="The idea of Connect is born."></li>
+            <li data-year="July 2023" data-text="I created the platform DevelopersMeet."></li>
+            <li data-year="Summer 2024" data-text="I interned at Rockwell Automation as a Software Engineer."></li>
+            <li data-year="Fall 2024" data-text="Looking for my next venture."></li>
+        </ul>
+        <style>
+            .companies h1 {
+                text-align: center;
+                padding-bottom: 100px;
+            }
+            .companies {
+                padding-bottom: 100px;
+            }
+    
+            .timeline {
+                width: 800px;
+                height: 20px;
+                list-style: none;
+                text-align: justify;
+                margin: 80px auto;
+                background: -webkit-gradient(
+                    left top,
+                    left bottom,
+                    color-stop(0%, rgba(255, 255, 255, 0)),
+                    color-stop(45%, rgba(255, 255, 255, 0)),
+                    color-stop(51%, rgba(191, 128, 11, 1)),
+                    color-stop(57%, rgba(255, 255, 255, 0)),
+                    color-stop(100%, rgba(255, 255, 255, 0))
+                );
+                background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0) 45%,
+                    rgba(191, 128, 11, 1) 51%,
+                    rgba(255, 255, 255, 0) 57%,
+                    rgba(255, 255, 255, 0) 100%
+                );
+            }
+    
+            .timeline:after {
+                display: inline-block;
+                content: "";
+                width: 100%;
+            }
+    
+            .timeline li {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: #f2bb13;
+                text-align: center;
+                line-height: 1.2;
+                position: relative;
+                border-radius: 50%;
+            }
+    
+            /* Style for the year text (data-year) */
+            .timeline li:before {
+                display: inline-block;
+                content: attr(data-year);
+                font-size: 20px; /* Increased size */
+                font-weight: bold; /* Added bold styling */
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                color: #333;
+            }
+    
+            .timeline li:nth-child(odd):before {
+                top: -50px; /* Positioned further above the bubble */
+            }
+    
+            .timeline li:nth-child(even):before {
+                bottom: -50px; /* Positioned further below the bubble */
+            }
+    
+            /* Style for the description text (data-text) */
+            .timeline li:after {
+                display: inline-block;
+                content: attr(data-text);
+                font-size: 16px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                color: #555;
+            }
+    
+            .timeline li:nth-child(odd):after {
+                bottom: 0;
+                margin-bottom: -10px;
+                transform: translate(-50%, 100%);
+            }
+            .timeline li:nth-child(even):after {
+                top: 0;
+                margin-top: -10px;
+                transform: translate(-50%, -100%);
+            }
+
+
+        
+        </style>
+    </section>
+    
+
+      <section class="projects" id="my-work">
+        <h1>My Work</h1>
+        <div class="reveal">
+        <div class="row">
+        
+    
+        <div class="proj-col">
+            <a href="https://kuko798.github.io/EpsilonTheta1969/"><img src="C:\Users\paulo\OneDrive\Pictures\Screenshots\Screenshot 2025-01-05 024015.png"/></a>
+        </div>
+        
+        <div class="proj-col">
+            <a href="https://developersmeet.com/"><img src="C:\Users\paulo\OneDrive\Pictures\Screenshots\Screenshot 2023-12-28 012130.png" /></a>
+        </div>
+
+        <div class="proj-col">
+            <a href="https://thurldetailz.com/"><img src="C:\Users\paulo\OneDrive\Pictures\Screenshots\Screenshot 2025-01-05 024324.png"/></a>
+        </div>
+        </div>
+        </div>
+        <script type="text/javascript">
+            window.addEventListener('scroll', reveal);
+            function reveal(){
+              var reveals = document.querySelectorAll('.reveal');
+              for(var i = 0; i< reveals.length; i++){
+
+                var windowheight = window.innerHeight;
+                revealtop = reveals[i].getBoundingClientRect().top;
+               var revealpoint = 150;
+
+               if(revealtop < windowheight - revealpoint){
+                reveals[i].classList.add('active');
+
+               }else{
+                reveals[i].classList.remove('active');
+               }
+              }
+            }
+          </script>
+
+          <style>
+            .reveal{
+              position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: all 2s ease;
+            }
+            .reveal.active{
+              opacity: 1;
+              transform: translateY(0px);
+             
+            }
+          </style>
+        <style>
+            .projects h1{
+                text-align: center;
+            }
+            .projects{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            }
+            .proj-col{
+            flex-basis: 31%;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            }
+
+            .proj-col img{
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;   
+            }
+            
+              /* Responsive behavior */
+    @media (max-width: 768px) {
+        .proj-col {
+            flex-basis: 48%; /* Take up 48% of the row on medium screens */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .proj-col {
+            flex-basis: 100%; /* Take up full width on small screens */
+        }
+    }
+        </style>
+      </section>
+      <section class="footer">
+        <div class="footer-row">
+          <div class="footer-col">
+            <h4>Info</h4>
+            <ul class="links">
+              <li><a href="#about-me">About Me</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#my-work">My Work</a></li>
+              <li><a href="mailto:kobeuko@gmail.com">Email Me</a></li>
+            </ul>
+          </div>
+             
+          </div>
+        </div>
+      </section>
+
+      <style>
+        .footer {
+  position: relative;
+ 
+  
+  background: #10182F;
+  border-radius: 6px;
+
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.footer .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3.5rem;
+  padding: 60px;
+}
+.footer-row .footer-col h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.footer-col .links {
+  margin-top: 20px;
+}
+.footer-col .links li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.footer-col .links li a {
+  text-decoration: none;
+  color: #bfbfbf;
+}
+.footer-col .links li a:hover {
+  color: #fff;
+}
+.footer-col p {
+  margin: 20px 0;
+  color: #bfbfbf;
+  max-width: 300px;
+}
+.footer-col form {
+  display: flex;
+  gap: 5px;
+}
+.footer-col input {
+  height: 40px;
+  border-radius: 6px;
+  background: none;
+  width: 100%;
+  outline: none;
+  border: 1px solid #7489C6 ;
+  caret-color: #fff;
+  color: #fff;
+  padding-left: 10px;
+}
+.footer-col input::placeholder {
+  color: #ccc;
+}
+ .footer-col form button {
+  background: #fff;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+.footer-col form button:hover {
+  background: #cecccc;
+}
+.footer-col .icons {
+  display: flex;
+  margin-top: 30px;
+  gap: 30px;
+  cursor: pointer;
+}
+.footer-col .icons i {
+  color: #afb6c7;
+}
+.footer-col .icons i:hover  {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+  }
+  .footer .footer-row {
+    padding: 20px;
+    gap: 1rem;
+  }
+  .footer-col form {
+    display: block;
+  }
+  .footer-col form :where(input, button) {
+    width: 100%;
+  }
+  .footer-col form button {
+    margin: 10px 0 0 0;
+  }
+}
+
+      </style>
+    
+    </body>
+</html>
