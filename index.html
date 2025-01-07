@@ -335,8 +335,18 @@ nav .logo.space{
     text-align: center;
 }
 
-.frontpage img{
-    position: fixed !important;
+
+@media (max-width: 768px) {
+    .frontpage {
+        background-size: contain; 
+        background-attachment: scroll; 
+    }
+    
+    .frontpage h1 {
+        font-size: 40px; 
+        padding-top: 100px;
+        margin-left: 15px;
+    }
 }
             </style>
     </section>
